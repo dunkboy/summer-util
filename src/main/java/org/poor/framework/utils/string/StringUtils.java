@@ -1,4 +1,4 @@
-package org.poor.framework.string;
+package org.poor.framework.utils.string;
 
 /**
  * +---------------------------+

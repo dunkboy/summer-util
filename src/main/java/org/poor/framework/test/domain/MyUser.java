@@ -1,19 +1,17 @@
-package org.poor.framework.TestController;/**
+package org.poor.framework.test.domain;/**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
- * <p>Title: A</p>
- * <p>Description: A</p>
+ * <p>Title: MyUser</p>
+ * <p>Description: MyUser</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
  * <p>Company: remark holdings</p>
- * <p>CreateTime: 2018/8/31 23:11</p>
+ * <p>CreateTime: 2018/9/2 20:55</p>
  * @author cb
  * @version 1.0
  **/
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  *      _mZ***~*=e_
@@ -41,32 +39,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *                                            ]AA=s. '~='Y[
  *                                            W V.       ~
  */
-
-public class A
+@Data
+public class MyUser
 {
-
-    //    @JSONField(serialize=false)
-    @JSONField(serialzeFeatures = SerializerFeature.WriteMapNullValue)
+    /**
+     * id
+     */
+    private Long id;
+    /**
+     * 姓名
+     */
     private String name;
-    private int age;
+    /**
+     * 密码
+     */
+    private String password;
+    /**
+     * 年龄
+     */
+    private Integer age;
+    /**
+     * 性别
+     */
+    private Integer sex;
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public int getAge()
-    {
-        return age;
-    }
-
-    public void setAge(int age)
-    {
-        this.age = age;
-    }
 }

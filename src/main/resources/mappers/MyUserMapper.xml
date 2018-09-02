@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.poor.framework.test.dao.MyUserMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="org.poor.framework.test.domain.MyUser">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        name,
+        password,
+        age,
+        sex
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="myUser.id">
+        INSERT INTO my_user (
+            id,
+            name,
+            password,
+            age,
+            sex
+        ) VALUES (
+            #{myUser.id,jdbcType=BIGINT},
+            #{myUser.name,jdbcType=VARCHAR},
+            #{myUser.password,jdbcType=VARCHAR},
+            #{myUser.age,jdbcType=INTEGER},
+            #{myUser.sex,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="myUser.id">
+        INSERT INTO my_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="myUser.id!=null"> id,</if>
+            <if test="myUser.name!=null"> name,</if>
+            <if test="myUser.password!=null"> password,</if>
+            <if test="myUser.age!=null"> age,</if>
+            <if test="myUser.sex!=null"> sex,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="myUser.id!=null">#{myUser.id,jdbcType=BIGINT},
+            </if>
+            <if test="myUser.name!=null">#{myUser.name,jdbcType=VARCHAR},
+            </if>
+            <if test="myUser.password!=null">#{myUser.password,jdbcType=VARCHAR},
+            </if>
+            <if test="myUser.age!=null">#{myUser.age,jdbcType=INTEGER},
+            </if>
+            <if test="myUser.sex!=null">#{myUser.sex,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO my_user (
+        <include refid="Base_Column_List"/>
+        )VALUES
+        <foreach collection="myUsers" item="myUser" index="index" separator=",">
+            (
+            #{myUser.id,jdbcType=BIGINT},
+            #{myUser.name,jdbcType=VARCHAR},
+            #{myUser.password,jdbcType=VARCHAR},
+            #{myUser.age,jdbcType=INTEGER},
+            #{myUser.sex,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE my_user
+        <set>
+            <if test="myUser.id != null"> id= #{myUser.id,jdbcType=BIGINT},</if>
+            <if test="myUser.name != null"> name= #{myUser.name,jdbcType=VARCHAR},</if>
+            <if test="myUser.password != null"> password= #{myUser.password,jdbcType=VARCHAR},</if>
+            <if test="myUser.age != null"> age= #{myUser.age,jdbcType=INTEGER},</if>
+            <if test="myUser.sex != null"> sex= #{myUser.sex,jdbcType=INTEGER}</if>
+        </set>
+        WHERE id = #{myUser.id,jdbcType=BIGINT}
+    </update>
+</mapper>
+

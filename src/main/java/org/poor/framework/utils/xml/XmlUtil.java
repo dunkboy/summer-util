@@ -1,4 +1,4 @@
-package org.poor.framework.xml;
+package org.poor.framework.utils.xml;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

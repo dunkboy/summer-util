@@ -1,4 +1,4 @@
-package org.poor.framework.exception;
+package org.poor.framework.utils.exception;
 
 /**
  * +---------------------------+

@@ -1,4 +1,4 @@
-package org.poor.framework.tree.domain;
+package org.poor.framework.utils.tree.domain;
 
 import java.util.HashSet;
 import java.util.Set;

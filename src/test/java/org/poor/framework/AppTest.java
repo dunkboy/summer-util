@@ -5,8 +5,11 @@ import static org.junit.Assert.assertTrue;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.PropertyPreFilter;
 import org.junit.Test;
-import org.poor.framework.TestController.A;
-import org.poor.framework.json.FastJsonUtil;
+import org.poor.framework.test.A;
+import org.poor.framework.utils.json.FastJsonUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Unit test for simple App.
@@ -51,13 +54,27 @@ public class AppTest
                 return false;
             }
         };
-        A a = new A();
-        a.setAge(12);
-        a.setName("sadasd");
+        A a_f = new A();
+        a_f.setName("1321312");
+        a_f.setAge(0);
+        A ttt = new A();
+        ttt.setName("66666666");
+        ttt.setAge(0);
+        List<A> a = new ArrayList<>();
+        a.add(ttt);
+        a.add(a_f);
+
+
+        System.out.println(a_f);
+
+
+//        a.setAge(12);
+//        a.setName("sadasd");
         System.out.println(FastJsonUtil.toJSONString(a));
-        String aa="{\"age\":12,\"name\":\"dads\"}";
+//        System.out.println(FastJsonUtil.toJSONString(a));
+//        String aa="{\"age\":12,\"name\":\"dads\"}";
 //        String aa="{\"age\":12}";
-        A parse = FastJsonUtil.parseObject(aa,A.class);
-        System.out.println(parse.getName());
+//        A parse = FastJsonUtil.parseObject(aa,A.class);
+//        System.out.println(parse.getName());
     }
 }

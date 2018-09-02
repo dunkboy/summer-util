@@ -1,7 +1,7 @@
-package org.poor.framework.tree.utils;
+package org.poor.framework.utils.tree.utils;
 
-import org.poor.framework.exception.BuildTreeException;
-import org.poor.framework.tree.domain.BasicTree;
+import org.poor.framework.utils.exception.BuildTreeException;
+import org.poor.framework.utils.tree.domain.BasicTree;
 
 import java.util.HashSet;
 import java.util.Iterator;

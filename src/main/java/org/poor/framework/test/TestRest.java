@@ -1,4 +1,4 @@
-package org.poor.framework.TestController;/**
+package org.poor.framework.test;/**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
@@ -11,11 +11,18 @@ package org.poor.framework.TestController;/**
  * @version 1.0
  **/
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.poor.framework.test.domain.MyUser;
+import org.poor.framework.test.service.MyUserService;
+import org.poor.framework.utils.json.FastJsonUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *      _mZ***~*=e_
@@ -47,14 +54,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestRest
 {
+    @Autowired
+    private MyUserService myUserService;
+
     @PostMapping(value = "/123")
-    public Object get(@RequestBody A b)
+    public void get(@RequestBody A b, HttpServletResponse response) throws Exception
     {
-//        System.out.println(b.getName());
-//        System.out.println(b.getAge());
-        A a = new A();
-        a.setAge(12);
-//        a.setName("sadasd");
-        return a;
+        System.out.println(b.getName());
+        System.out.println(b.getAge());
+        System.out.println("==============");
+        List<MyUser> user = new ArrayList<>();
+        for (int i = 0; i < 30; i++)
+        {
+            MyUser my = new MyUser();
+            my.setName(String.valueOf(i));
+            my.setPassword(String.valueOf(i));
+            my.setAge(i);
+            my.setSex(i);
+            user.add(my);
+        }
+        myUserService.insertList(user);
     }
 }

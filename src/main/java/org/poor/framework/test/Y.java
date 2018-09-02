@@ -1,4 +1,4 @@
-package org.poor.framework.TestController;/**
+package org.poor.framework.test;/**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
@@ -11,7 +11,6 @@ package org.poor.framework.TestController;/**
  * @version 1.0
  **/
 
-import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -20,8 +19,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 
 /**

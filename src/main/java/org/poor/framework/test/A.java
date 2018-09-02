@@ -1,4 +1,4 @@
-package org.poor.framework.TestController;/**
+package org.poor.framework.test;/**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
@@ -10,6 +10,9 @@ package org.poor.framework.TestController;/**
  * @author cb
  * @version 1.0
  **/
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  *      _mZ***~*=e_
@@ -37,8 +40,12 @@ package org.poor.framework.TestController;/**
  *                                            ]AA=s. '~='Y[
  *                                            W V.       ~
  */
-public class B
+
+public class A
 {
+
+    //    @JSONField(serialize=false)
+    @JSONField(serialzeFeatures = SerializerFeature.WriteMapNullValue)
     private String name;
     private int age;
 

@@ -1,4 +1,4 @@
-package org.poor.framework.mysql.pagination;
+package org.poor.framework.utils.mysql.pagination;
 
 /**
  * +---------------------------+
