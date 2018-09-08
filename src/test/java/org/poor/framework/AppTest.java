@@ -4,15 +4,41 @@ import static org.junit.Assert.assertTrue;
 
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.PropertyPreFilter;
+import com.auth0.jwk.Jwk;
+import com.auth0.jwk.JwkException;
+import com.auth0.jwk.JwkProvider;
+import com.auth0.jwk.JwkProviderBuilder;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.RSAKeyProvider;
+import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 import org.poor.framework.test.A;
 import org.poor.framework.utils.json.FastJsonUtil;
+import org.poor.framework.utils.jwt.Jwt;
+import org.poor.framework.utils.jwt.JwtUtil;
+import org.poor.framework.utils.jwt.RSAKeyProviderHelper;
 
+import java.io.File;
+import java.math.BigInteger;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPrivateCrtKeySpec;
+import java.security.spec.RSAPrivateKeySpec;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
- * Unit test for simple App.
+ * Unit test.json for simple App.
  */
 public class AppTest
 {
@@ -25,10 +51,11 @@ public class AppTest
         assertTrue(true);
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-//        String test = "fkdsfkdsj${key1}fdfdsfdsfds${key2}";
-//        String newtest= StringUtils.replaceEval(test, new IStringReplaceProcess()
+        //######################################################
+//        String test.json = "fkdsfkdsj${key1}fdfdsfdsfds${key2}";
+//        String newtest= StringUtils.replaceEval(test.json, new IStringReplaceProcess()
 //        {
 //            @Override
 //            public String doReplace(String key, StringBuffer src, int prefixIndex, int suffixIndex)
@@ -44,37 +71,30 @@ public class AppTest
 //                return null;
 //            }
 //        });
-//        System.out.println(test);
+//        System.out.println(test.json);
 //        System.out.println(newtest);
-        PropertyPreFilter filter = new PropertyPreFilter()
-        {
-            @Override
-            public boolean apply(JSONSerializer jsonSerializer, Object o, String s)
-            {
-                return false;
-            }
-        };
-        A a_f = new A();
-        a_f.setName("1321312");
-        a_f.setAge(0);
-        A ttt = new A();
-        ttt.setName("66666666");
-        ttt.setAge(0);
-        List<A> a = new ArrayList<>();
-        a.add(ttt);
-        a.add(a_f);
-
-
-        System.out.println(a_f);
-
-
-//        a.setAge(12);
-//        a.setName("sadasd");
-        System.out.println(FastJsonUtil.toJSONString(a));
-//        System.out.println(FastJsonUtil.toJSONString(a));
-//        String aa="{\"age\":12,\"name\":\"dads\"}";
-//        String aa="{\"age\":12}";
-//        A parse = FastJsonUtil.parseObject(aa,A.class);
-//        System.out.println(parse.getName());
+        //######################################################
+        //Header
+        Jwt jwt = new Jwt();
+        jwt.getHeader().put("alg", "HS256");
+        jwt.getHeader().put("typ", "JWT");
+        //Payload
+        Calendar nowTime = Calendar.getInstance();
+        nowTime.add(Calendar.DATE, 1);
+        Date expiresDate = nowTime.getTime();
+        jwt.getPayload().put("expiresAt", expiresDate);
+        jwt.getPayload().put("userName", "sb");
+        jwt.getPayload().put("userId", "adsadsadsadsadsadsad");
+        String token = JwtUtil.createToken(jwt);
+        System.out.println(token);
+        DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+        System.out.println(decodedJWT.getExpiresAt().toString());
+        System.out.println(decodedJWT.getSubject());
+        System.out.println(decodedJWT.getAudience());
+        System.out.println(decodedJWT.getKeyId());
+        System.out.println(decodedJWT.getClaim("user_id").asString());
+        System.out.println(decodedJWT.getIssuedAt());
+        System.out.println(decodedJWT.getIssuer());
+        //######################################################
     }
 }
