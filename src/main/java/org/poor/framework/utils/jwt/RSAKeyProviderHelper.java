@@ -49,6 +49,10 @@ public class RSAKeyProviderHelper implements RSAKeyProvider
      */
     private static Keys jwks;
     /**
+     * One-line comment
+     */
+    private static JwkProvider provider;
+    /**
      * jwks.json
      */
     private final String path = this.getClass().getClassLoader().getResource("jwk/jwks.json").getPath();
@@ -98,10 +102,14 @@ public class RSAKeyProviderHelper implements RSAKeyProvider
 
     private JwkProvider getProvider() throws Exception
     {
-        JwkProvider provider = new JwkProviderBuilder(new File(path).toURI().toURL())
-                .cached(10, 24, TimeUnit.HOURS)
-                .rateLimited(10, 1, TimeUnit.MINUTES)
-                .build();
+        if (provider == null)
+        {
+            provider = new JwkProviderBuilder(new File(path).toURI().toURL())
+                    .cached(10, 24, TimeUnit.HOURS)
+                    .rateLimited(10, 1, TimeUnit.MINUTES)
+                    .build();
+        }
+
         return provider;
     }
 
