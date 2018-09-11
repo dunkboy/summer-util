@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import javax.servlet.http.HttpServletResponse;
 
 
+import static org.poor.framework.utils.constant.PublicConstant.CHARACTER;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 /**
@@ -23,11 +24,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 public abstract class FastJsonUtil extends JSON
 {
-    /**
-     * One-line comment
-     */
-    public static final String CHARACTER = "UTF-8";
-
     /**
      * <p>Description: 响应json数据</p>
      * <p>Copyright:Copyright(c)2018</p>

@@ -1,5 +1,6 @@
 package org.poor.framework;
 
+import static org.apache.commons.codec.binary.Base64.decodeBase64;
 import static org.junit.Assert.assertTrue;
 
 import com.alibaba.fastjson.serializer.JSONSerializer;
@@ -20,6 +21,7 @@ import org.poor.framework.utils.json.FastJsonUtil;
 import org.poor.framework.utils.jwt.Jwt;
 import org.poor.framework.utils.jwt.JwtUtil;
 import org.poor.framework.utils.jwt.RSAKeyProviderHelper;
+import org.poor.framework.utils.security.DESUtils;
 
 import java.io.File;
 import java.math.BigInteger;
@@ -75,26 +77,31 @@ public class AppTest
 //        System.out.println(newtest);
         //######################################################
         //Header
-        Jwt jwt = new Jwt();
-        jwt.getHeader().put("alg", "HS256");
-        jwt.getHeader().put("typ", "JWT");
-        //Payload
-        Calendar nowTime = Calendar.getInstance();
-        nowTime.add(Calendar.DATE, 1);
-        Date expiresDate = nowTime.getTime();
-        jwt.getPayload().put("expiresAt", expiresDate);
-        jwt.getPayload().put("userName", "sb");
-        jwt.getPayload().put("userId", "adsadsadsadsadsadsad");
-        String token = JwtUtil.createToken(jwt);
-        System.out.println(token);
-        DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
-        System.out.println(decodedJWT.getExpiresAt().toString());
-        System.out.println(decodedJWT.getSubject());
-        System.out.println(decodedJWT.getAudience());
-        System.out.println(decodedJWT.getKeyId());
-        System.out.println(decodedJWT.getClaim("user_id").asString());
-        System.out.println(decodedJWT.getIssuedAt());
-        System.out.println(decodedJWT.getIssuer());
+//        Jwt jwt = new Jwt();
+//        jwt.getHeader().put("alg", "HS256");
+//        jwt.getHeader().put("typ", "JWT");
+//        //Payload
+//        Calendar nowTime = Calendar.getInstance();
+//        nowTime.add(Calendar.DATE, 1);
+//        Date expiresDate = nowTime.getTime();
+//        jwt.getPayload().put("expiresAt", expiresDate);
+//        jwt.getPayload().put("userName", "sb");
+//        jwt.getPayload().put("userId", "adsadsadsadsadsadsad");
+//        String token = JwtUtil.createToken(jwt);
+//        System.out.println(token);
+//        DecodedJWT decodedJWT = JwtUtil.verifyToken(token);
+//        System.out.println(decodedJWT.getExpiresAt().toString());
+//        System.out.println(decodedJWT.getSubject());
+//        System.out.println(decodedJWT.getAudience());
+//        System.out.println(decodedJWT.getKeyId());
+//        System.out.println(decodedJWT.getClaim("user_id").asString());
+//        System.out.println(decodedJWT.getIssuedAt());
+//        System.out.println(decodedJWT.getIssuer());
+        //######################################################
+//        String encrypt = DESUtils.encrypt("麻瓜123456");
+//        System.out.println(encrypt);
+//        String decrypt = DESUtils.decrypt(encrypt);
+//        System.out.println(decrypt);
         //######################################################
     }
 }

@@ -21,7 +21,7 @@ package org.poor.framework.test;/**
  *    M                      __.    'Vc   ,=~                ]i   ]@@
  *    ].   ,m=*+m.           ~~~*s     \m/                   ]`   ]@@
  *    ][  iP,__ ][               '[     's                   ]s___g@@
- *     W   N/**_A`                Y      '.                  ][  '~~~
+ *     W   N/**_A`                WebMvcConfiguration      '.                  ][  '~~~
  *     ]i   ~~~\__                i       `                  ][
  *  ___gW    ,Z~`'Vs             g`       -                  ][
  * f`   !W   M W@i W          _g/`        ,                  ][
@@ -33,8 +33,8 @@ package org.poor.framework.test;/**
  *     ~***~`   VMm_                ,zf     YD-_.            ]
  *                '~*em__       __zf`        b  '~\=es____  ,@
  *                      ~~~~~~~~`            !i        ,~VP~V*
- *                                            Y.     ]7 ~@[
- *                                            ]AA=s. '~='Y[
+ *                                            WebMvcConfiguration.     ]7 ~@[
+ *                                            ]AA=s. '~='WebMvcConfiguration[
  *                                            W V.       ~
  */
 public class B

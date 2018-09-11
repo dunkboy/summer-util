@@ -1,9 +1,9 @@
-package org.poor.framework.test;/**
+package org.poor.framework.test.controller;/**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
- * <p>Title: TestRest</p>
- * <p>Description: TestRest</p>
+ * <p>Title: TestController</p>
+ * <p>Description: TestController</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
  * <p>Company: remark holdings</p>
  * <p>CreateTime: 2018/8/31 23:31</p>
@@ -11,6 +11,7 @@ package org.poor.framework.test;/**
  * @version 1.0
  **/
 
+import org.poor.framework.test.A;
 import org.poor.framework.test.domain.MyUser;
 import org.poor.framework.test.service.MyUserService;
 import org.poor.framework.utils.json.FastJsonUtil;
@@ -34,7 +35,7 @@ import java.util.List;
  *    M                      __.    'Vc   ,=~                ]i   ]@@
  *    ].   ,m=*+m.           ~~~*s     \m/                   ]`   ]@@
  *    ][  iP,__ ][               '[     's                   ]s___g@@
- *     W   N/**_A`                Y      '.                  ][  '~~~
+ *     W   N/**_A`                WebMvcConfiguration      '.                  ][  '~~~
  *     ]i   ~~~\__                i       `                  ][
  *  ___gW    ,Z~`'Vs             g`       -                  ][
  * f`   !W   M W@i W          _g/`        ,                  ][
@@ -46,13 +47,13 @@ import java.util.List;
  *     ~***~`   VMm_                ,zf     YD-_.            ]
  *                '~*em__       __zf`        b  '~\=es____  ,@
  *                      ~~~~~~~~`            !i        ,~VP~V*
- *                                            Y.     ]7 ~@[
- *                                            ]AA=s. '~='Y[
+ *                                            WebMvcConfiguration.     ]7 ~@[
+ *                                            ]AA=s. '~='WebMvcConfiguration[
  *                                            W V.       ~
  */
 @RestController
 @RequestMapping("/test")
-public class TestRest
+public class TestController
 {
     @Autowired
     private MyUserService myUserService;
