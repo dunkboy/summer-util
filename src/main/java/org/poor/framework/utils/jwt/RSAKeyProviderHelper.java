@@ -5,7 +5,7 @@ package org.poor.framework.utils.jwt;/**
  * <p>Title: RSAKeyProviderHelper</p>
  * <p>Description: RSAKeyProviderHelper</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/8 21:48</p>
  * @author cb
  * @version 1.0

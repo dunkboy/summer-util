@@ -5,7 +5,7 @@ package org.poor.framework.test;/**
  * <p>Title: TestDao</p>
  * <p>Description: TestDao</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/1 23:02</p>
  * @author cb
  * @version 1.0

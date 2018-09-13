@@ -7,7 +7,7 @@ package org.poor.framework.utils.string;
  * <p>Title: StringUtils</p>
  * <p>Description: StringUtils</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/5/3 16:59</p>
  * @author cb
  * @version 1.0

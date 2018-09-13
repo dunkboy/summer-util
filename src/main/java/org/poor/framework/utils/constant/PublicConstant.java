@@ -7,7 +7,7 @@ package org.poor.framework.utils.constant;
  * <p>Title: PublicConstant</p>
  * <p>Description: PublicConstant</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/11 14:40</p>
  * @author cb
  * @version 1.0

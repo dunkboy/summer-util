@@ -5,7 +5,7 @@ package org.poor.framework.utils.jwt;/**
  * <p>Title: Jwk</p>
  * <p>Description: Jwk</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/8 22:17</p>
  * @author cb
  * @version 1.0

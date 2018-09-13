@@ -5,7 +5,7 @@ package org.poor.framework.test.config;/**
  * <p>Title: WebMvcConfiguration</p>
  * <p>Description: WebMvcConfiguration</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/31 23:47</p>
  * @author cb
  * @version 1.0

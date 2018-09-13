@@ -10,7 +10,7 @@ import java.util.Map;
  * <p>Title: Jwt</p>
  * <p>Description: Jwt</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/8 23:10</p>
  * @author cb
  * @version 1.0

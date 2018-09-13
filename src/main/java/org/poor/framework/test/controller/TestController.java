@@ -5,7 +5,7 @@ package org.poor.framework.test.controller;/**
  * <p>Title: TestController</p>
  * <p>Description: TestController</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/31 23:31</p>
  * @author cb
  * @version 1.0
@@ -17,6 +17,7 @@ import org.poor.framework.test.service.MyUserService;
 import org.poor.framework.utils.json.FastJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,5 +76,11 @@ public class TestController
             user.add(my);
         }
         myUserService.insertList(user);
+    }
+
+    @PutMapping(value = "/hehe")
+    public void hehe(Object obj)
+    {
+        System.out.println("?????");
     }
 }

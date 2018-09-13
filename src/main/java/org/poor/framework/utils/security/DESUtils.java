@@ -21,7 +21,7 @@ import static org.apache.commons.codec.binary.Base64.encodeBase64String;
  * <p>Title: DESUtils</p>
  * <p>Description: DESUtils</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/6/30 15:46</p>
  * @author cb
  * @version 1.0

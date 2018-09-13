@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * <p>Title: ExampleTest</p>
  * <p>Description: ExampleTest</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/9 10:16</p>
  * @author cb
  * @version 1.0

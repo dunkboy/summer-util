@@ -7,7 +7,7 @@ package org.poor.framework.utils.exception;
  * <p>Title: BuildTreeException</p>
  * <p>Description: BuildTreeException</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/25 21:58</p>
  * @author cb
  * @version 1.0

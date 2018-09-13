@@ -14,7 +14,7 @@ import java.util.Date;
  * <p>Title: JwtUtil</p>
  * <p>Description: JwtUtil</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/8 23:09</p>
  * @author cb
  * @version 1.0

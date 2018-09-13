@@ -7,7 +7,7 @@ package org.poor.framework.utils.mysql.pagination;
  * <p>Title: ManualPage</p>
  * <p>Description: ManualPage</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/26 14:24</p>
  * @author cb
  * @version 1.0
@@ -19,7 +19,7 @@ public abstract class ManualPage
     /**
      * <p>Description: 获取页数</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/8/26 14:26</p>
      * <p>@author cb</p>
      *
@@ -36,7 +36,7 @@ public abstract class ManualPage
     /**
      * <p>Description: 循环处理数据，每次处理limit条</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/8/26 15:06</p>
      * <p>@author cb</p>
      *

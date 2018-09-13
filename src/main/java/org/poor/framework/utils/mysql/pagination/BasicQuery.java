@@ -7,7 +7,7 @@ package org.poor.framework.utils.mysql.pagination;
  * <p>Title: BasicQuery</p>
  * <p>Description: BasicQuery</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/26 14:32</p>
  * @author cb
  * @version 1.0

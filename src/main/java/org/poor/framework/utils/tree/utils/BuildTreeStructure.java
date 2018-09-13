@@ -17,7 +17,7 @@ import static org.springframework.beans.BeanUtils.copyProperties;
  * <p>Title: BuildTreeStructure</p>
  * <p>Description: BuildTreeStructure</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/25 21:49</p>
  * @author cb
  * @version 1.0
@@ -29,7 +29,7 @@ public abstract class BuildTreeStructure
     /**
      * <p>Description: 拆分获取root节点</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/5/30 16:53</p>
      * <p>@author cb</p>
      *
@@ -71,7 +71,7 @@ public abstract class BuildTreeStructure
     /**
      * <p>Description:递归封装children</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/5/30 16:54</p>
      * <p>@author cb</p>
      *

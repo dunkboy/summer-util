@@ -6,7 +6,7 @@ package org.poor.framework.utils.collection;
  * <p>Title: ArraySortUtils</p>
  * <p>Description: ArraySortUtils</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/4/24 17:14</p>
  * @author cb
  * @version 1.0

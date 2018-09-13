@@ -24,7 +24,7 @@ import java.util.Map;
  * <p>Title: CsvUtil</p>
  * <p>Description: CsvUtil</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/9/12 17:38</p>
  * @author cb
  * @version 1.0
@@ -36,7 +36,7 @@ public abstract class CsvUtil
     /**
      * <p>Description: read csv into bean</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/9/12 17:52</p>
      * <p>@author cb</p>
      *
@@ -58,7 +58,7 @@ public abstract class CsvUtil
     /**
      * <p>Description: read csv include header and first line</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/9/12 17:55</p>
      * <p>@author cb</p>
      *
@@ -74,7 +74,7 @@ public abstract class CsvUtil
     /**
      * <p>Description: write csv from java beans </p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/9/12 18:04</p>
      * <p>@author cb</p>
      *

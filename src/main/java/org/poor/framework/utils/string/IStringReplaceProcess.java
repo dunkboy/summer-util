@@ -7,7 +7,7 @@ package org.poor.framework.utils.string;
  * <p>Title: IStringReplaceProcess</p>
  * <p>Description: IStringReplaceProcess</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
- * <p>Company: remark holdings</p>
+ * <p>Company: poor</p>
  * <p>CreateTime: 2018/8/26 10:37</p>
  * @author cb
  * @version 1.0
@@ -19,7 +19,7 @@ public interface IStringReplaceProcess
     /**
      * <p>Description:</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/8/26 10:38</p>
      * <p>@author cb</p>
      *
