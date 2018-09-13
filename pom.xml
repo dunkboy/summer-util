@@ -85,6 +85,11 @@
             <artifactId>jwks-rsa</artifactId>
             <version>${com.auth0.jwks.rsa.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>patchca</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
     <repositories>

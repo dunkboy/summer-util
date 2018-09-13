@@ -1,5 +1,7 @@
 package org.poor.framework.utils.constant;
 
+import java.util.Random;
+
 /**
  * +---------------------------+
  * |I am the most handsome coding peasant.|
@@ -20,4 +22,8 @@ public interface PublicConstant
      * CHARACTER
      */
     String CHARACTER = "UTF-8";
+    /**
+     * One-line comment
+     */
+    Random RANDOM = new Random();
 }

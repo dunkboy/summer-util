@@ -16,6 +16,7 @@ import org.poor.framework.test.domain.MyUser;
 import org.poor.framework.test.service.MyUserService;
 import org.poor.framework.utils.json.FastJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -78,9 +79,10 @@ public class TestController
         myUserService.insertList(user);
     }
 
-    @PutMapping(value = "/hehe")
-    public void hehe(Object obj)
+    @GetMapping(value = "/hehe")
+    public void hehe(HttpServletResponse response)
     {
-        System.out.println("?????");
+        A a = new A();
+        a.outputCaptcha(response);
     }
 }

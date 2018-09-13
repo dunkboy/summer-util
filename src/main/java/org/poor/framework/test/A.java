@@ -13,6 +13,7 @@ package org.poor.framework.test;/**
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import org.poor.framework.utils.verification_code.GenerateVerificationCode;
 
 /**
  *      _mZ***~*=e_
@@ -41,7 +42,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  *                                            W V.       ~
  */
 
-public class A
+public class A extends GenerateVerificationCode
 {
 
     //    @JSONField(serialize=false)
@@ -67,5 +68,11 @@ public class A
     public void setAge(int age)
     {
         this.age = age;
+    }
+
+    @Override
+    public void recordCaptcha(String captcha)
+    {
+        System.out.println("===="+captcha);
     }
 }
