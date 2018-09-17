@@ -53,7 +53,7 @@ public class ChenTest
 //            System.out.println(k+"="+v);
 //        });
 
-        List<TestCsv> beans = CsvUtil.parseCsv("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\test.csv", TestCsv.class, null);
+//        List<TestCsv> beans = CsvUtil.parseCsv("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\test.csv", TestCsv.class, null);
 //        beans.stream().forEach(item->{
 //            System.out.print(item.getHeader1());
 //            System.out.print(item.getHeader2());
@@ -61,7 +61,7 @@ public class ChenTest
 //            System.out.print(item.getHeader4());
 //            System.out.println("----");
 //        });
-        CsvUtil.generateCsvFromBean(beans, "F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\1234.csv");
+//        CsvUtil.generateCsvFromBean(beans, "F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\1234.csv");
     }
 
 }
