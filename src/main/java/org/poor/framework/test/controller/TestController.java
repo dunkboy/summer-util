@@ -71,9 +71,9 @@ public class TestController
         {
             MyUser my = new MyUser();
             my.setName(String.valueOf(i));
-            my.setPassword(String.valueOf(i));
-            my.setAge(i);
-            my.setSex(i);
+//            my.setPassword(String.valueOf(i));
+//            my.setAge(i);
+//            my.setSex(i);
             user.add(my);
         }
         myUserService.insertList(user);

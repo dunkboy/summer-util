@@ -11,6 +11,7 @@ package org.poor.framework.test.domain;/**
  * @version 1.0
  **/
 
+import com.opencsv.bean.CsvBindByName;
 import lombok.Data;
 
 /**
@@ -45,22 +46,18 @@ public class MyUser
     /**
      * id
      */
+    @CsvBindByName
     private Long id;
     /**
      * 姓名
      */
+    @CsvBindByName
     private String name;
     /**
      * 密码
      */
-    private String password;
-    /**
-     * 年龄
-     */
-    private Integer age;
-    /**
-     * 性别
-     */
-    private Integer sex;
+    @CsvBindByName
+    private Long parentId;
+
 
 }

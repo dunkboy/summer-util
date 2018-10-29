@@ -1,0 +1,18 @@
+###递归查询tree
+SELECT
+	t3.id,
+	t3.parent_id,
+	t3.NAME
+FROM
+	(
+SELECT
+	t1.*,
+IF
+	( find_in_set( parent_id, @pids ) >= 0, @pids := concat( @pids, ',', id ), 0 ) AS ischild
+FROM
+	( SELECT * FROM ares_organization t ORDER BY parent_id, id ) t1,
+	( SELECT @pids := 1 ) t2
+	) t3
+WHERE
+	ischild != 0
+#######################

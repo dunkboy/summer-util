@@ -6,11 +6,16 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.poor.framework.test.B;
 import org.poor.framework.test.TestCsv;
+import org.poor.framework.test.dao.MyUserMapper;
+import org.poor.framework.test.domain.MyUser;
 import org.poor.framework.utils.csv.CsvUtil;
+import org.poor.framework.utils.email.EmailUtil;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.io.FileReader;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +39,18 @@ import static java.lang.System.out;
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ChenTest
 {
-
+    @Resource
+    private MyUserMapper myUserMapper;
 
     @Test
     public void test() throws Exception
     {
-
+//        List<MyUser> beans = CsvUtil.parseCsv("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\aaa.csv", MyUser.class, null);
+//        beans.stream().forEach(item->{
+//            item.setId(item.getId()+34);
+//        });
+//        myUserMapper.insertList(beans);
+        EmailUtil.sendMail("369082670@qq.com","爸爸来啦","叫霸霸~~~~~~~~");
     }
 
     public static void main(String[] args) throws Exception

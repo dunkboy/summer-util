@@ -46,3 +46,21 @@ mybatis:
   mapper-locations: classpath:mappers/*.xml
   # pojo类所在包路径
   type-aliases-package: org.poor.framework.test.domain
+
+#邮件参数配置
+email:
+  #服务器
+  host: smtp.partner.outlook.cn
+  #端口号
+  port: 587
+  #邮箱账号
+  username: ****
+  #邮箱授权码
+  password: ******
+  #时间延迟
+  timeout: 25000
+  #发送者
+  from: ****
+  #系统名称
+  personal: 黑客1号
+
