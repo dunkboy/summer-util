@@ -74,7 +74,7 @@ public class MybatisConfig implements TransactionManagementConfigurer
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSource dataSource, PaginationInterceptor paginationInterceptor)
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource)
     {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         //设置dataSource
@@ -111,8 +111,8 @@ public class MybatisConfig implements TransactionManagementConfigurer
         dbConfig.setIdType(IdType.INPUT);
         global.setDbConfig(dbConfig);
         bean.setGlobalConfig(global);
-        //设置分页 TODO 租户有冲突
-        bean.setPlugins(new Interceptor[]{paginationInterceptor});
+        //设置分页
+        bean.setPlugins(new Interceptor[]{paginationInterceptor()});
         try
         {
             return bean.getObject();
@@ -124,7 +124,6 @@ public class MybatisConfig implements TransactionManagementConfigurer
     }
 
 
-    @Bean
     public PaginationInterceptor paginationInterceptor()
     {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();

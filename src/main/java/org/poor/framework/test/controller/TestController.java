@@ -80,7 +80,7 @@ public class TestController
         {
             Student s = new Student();
             s.setName("name" + i);
-            s.setTenantId((long) i);
+//            s.setTenantId((long) i);
             s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
             studentService.insert(s);
         }
