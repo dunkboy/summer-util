@@ -11,9 +11,16 @@ package org.poor.framework.test.controller;/**
  * @version 1.0
  **/
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.poor.framework.test.A;
-import org.poor.framework.test.domain.MyUser;
-import org.poor.framework.test.service.MyUserService;
+import org.poor.framework.test.dao.StudentDao;
+import org.poor.framework.test.datasource.DataSourceSupport;
+import org.poor.framework.test.domain.po.Student;
+import org.poor.framework.test.enums.AssignTypeEnum;
+import org.poor.framework.test.service.StudentService;
+import org.poor.framework.utils.annotation.DataSource;
 import org.poor.framework.utils.json.FastJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,26 +65,25 @@ import java.util.List;
 @RequestMapping("/test")
 public class TestController
 {
-    @Autowired
-    private MyUserService myUserService;
+    @Resource
+    StudentService studentService;
 
-    @PostMapping(value = "/123")
-    public void get(@RequestBody A b, HttpServletResponse response) throws Exception
+    @Resource
+    private StudentDao studentDao;
+
+    @GetMapping(value = "/123")
+    @DataSource(value = "mysql5717DataSource")
+    public void get() throws Exception
     {
-        System.out.println(b.getName());
-        System.out.println(b.getAge());
-        System.out.println("==============");
-        List<MyUser> user = new ArrayList<>();
-        for (int i = 0; i < 30; i++)
+        System.out.println("============={}"+DataSourceSupport.get());
+        for (int i = 0; i < 10; i++)
         {
-            MyUser my = new MyUser();
-            my.setName(String.valueOf(i));
-//            my.setPassword(String.valueOf(i));
-//            my.setAge(i);
-//            my.setSex(i);
-            user.add(my);
+            Student s = new Student();
+            s.setName("name" + i);
+            s.setTenantId((long) i);
+            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
+            studentService.insert(s);
         }
-        myUserService.insertList(user);
     }
 
     @GetMapping(value = "/hehe")
@@ -84,5 +91,16 @@ public class TestController
     {
         A a = new A();
         a.outputCaptcha(response);
+    }
+
+    @GetMapping(value = "/qqq")
+    @DataSource("mysql8012DataSource")
+    public void qqq(HttpServletResponse response)
+    {
+        List<Student> students = studentDao.selectList(new QueryWrapper<>());
+        students.stream().parallel().forEach(System.out::println);
+        IPage<Student> studentIPage = studentDao.selectPage(new Page<>(1, 10), new QueryWrapper<>());
+        List<Student> records = studentIPage.getRecords();
+        records.stream().parallel().forEach(System.out::println);
     }
 }

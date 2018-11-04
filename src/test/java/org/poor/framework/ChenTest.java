@@ -1,5 +1,6 @@
 package org.poor.framework;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.bean.CsvToBean;
@@ -8,8 +9,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.poor.framework.test.B;
 import org.poor.framework.test.TestCsv;
-import org.poor.framework.test.dao.MyUserMapper;
-import org.poor.framework.test.domain.MyUser;
+import org.poor.framework.test.dao.StudentDao;
+import org.poor.framework.test.datasource.DataSourceSupport;
+import org.poor.framework.test.domain.po.Student;
+import org.poor.framework.test.enums.AssignTypeEnum;
+import org.poor.framework.utils.annotation.DataSource;
 import org.poor.framework.utils.csv.CsvUtil;
 import org.poor.framework.utils.email.EmailUtil;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.lang.System.out;
+import static java.lang.System.setOut;
 
 /**
  * +---------------------------+
@@ -40,9 +45,10 @@ import static java.lang.System.out;
 public class ChenTest
 {
     @Resource
-    private MyUserMapper myUserMapper;
+    private StudentDao studentDao;
 
     @Test
+    @DataSource("mysql8012DataSource")
     public void test() throws Exception
     {
 //        List<MyUser> beans = CsvUtil.parseCsv("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\aaa.csv", MyUser.class, null);
@@ -50,7 +56,33 @@ public class ChenTest
 //            item.setId(item.getId()+34);
 //        });
 //        myUserMapper.insertList(beans);
-        EmailUtil.sendMail("369082670@qq.com","爸爸来啦","叫霸霸~~~~~~~~");
+//        EmailUtil.sendMail("369082670@qq.com","爸爸来啦","叫霸霸~~~~~~~~");
+//        for (int i = 0; i < 10; i++)
+//        {
+//            Student s = new Student();
+//            s.setName("name"+i);
+////            s.setTenantId((long)i);
+//            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
+//            studentDao.insert(s);
+//        }
+        List<Student> students = studentDao.selectList(new QueryWrapper<>());
+        students.stream().parallel().forEach(System.out::println);
+//        System.out.println(AssignTypeEnum.NOT_ASSIGN.toString());;
+    }
+
+    @DataSource(value = "mysql5717DataSource")
+    @Test
+    public void test2() throws Exception
+    {
+        System.out.println("============={}"+DataSourceSupport.get());
+        for (int i = 0; i < 10; i++)
+        {
+            Student s = new Student();
+            s.setName("name" + i);
+            s.setTenantId((long) i);
+            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
+            studentDao.insert(s);
+        }
     }
 
     public static void main(String[] args) throws Exception

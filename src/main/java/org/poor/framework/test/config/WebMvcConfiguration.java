@@ -11,6 +11,8 @@ package org.poor.framework.test.config;/**
  * @version 1.0
  **/
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -49,9 +51,10 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport
         converter.setSupportedMediaTypes(supportedMediaTypes);
 
         //自定义配置...converterx
-//        FastJsonConfig config = new FastJsonConfig();
-        //config.set ...
-        //converter.setFastJsonConfig(config);
+        FastJsonConfig config = new FastJsonConfig();
+        //设置WriteEnumUsingToString
+        config.setSerializerFeatures(SerializerFeature.WriteEnumUsingToString,SerializerFeature.BrowserCompatible);
+        converter.setFastJsonConfig(config);
         converters.add(converter);
     }
 }

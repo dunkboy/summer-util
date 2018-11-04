@@ -13,19 +13,29 @@ spring:
         name: mybatis_test
         #使用druid连接池
         type: com.alibaba.druid.pool.DruidDataSource
+        mysql-8.0.12:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          #配置基本属性
+          url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8
+          username: root
+          password: 3828528
+
+        mysql-5.7.17:
+           url: jdbc:mysql://10.1.0.121:3306/test?allowMultiQueries=true&autoReconnect=true&useSSL=false
+           username: root
+           password: 1qaz2wsx
         #druid相关配置
         druid:
           #监控统计拦截的filters
-          filters: stat
-#          driver-class-name: com.mysql.jdbc.Driver
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          #配置基本属性
-          url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&useSSL=false&serverTimezone=GMT
-          username: root
-          password: 3828528
+#          filters: stat
+          web-stat-filter:
+              exclusions: \*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+          stat-view-servlet:
+              login-username: druid
+              ogin-password: druid
           #配置初始化大小/最小/最大
           initial-size: 1
-          min-idle: 1
+          min-idle: 5
           max-active: 20
           #获取连接等待超时时间
           max-wait: 60000
@@ -40,13 +50,8 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
-
-mybatis:
-  # 映射文件所在路径
-  mapper-locations: classpath:mappers/*.xml
-  # pojo类所在包路径
-  type-aliases-package: org.poor.framework.test.domain
-
+    profiles:
+      active: dev
 #邮件参数配置
 email:
   #服务器
@@ -54,13 +59,13 @@ email:
   #端口号
   port: 587
   #邮箱账号
-  username: ****
+  username: admin
   #邮箱授权码
-  password: ******
+  password: admin
   #时间延迟
   timeout: 25000
   #发送者
-  from: ****
+  from: admin
   #系统名称
   personal: 黑客1号
 
