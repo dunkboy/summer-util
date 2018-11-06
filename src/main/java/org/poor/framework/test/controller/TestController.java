@@ -95,12 +95,21 @@ public class TestController
 
     @GetMapping(value = "/qqq")
     @DataSource("mysql8012DataSource")
-    public void qqq(HttpServletResponse response)
+    public Object qqq(HttpServletResponse response)
     {
         List<Student> students = studentDao.selectList(new QueryWrapper<>());
         students.stream().parallel().forEach(System.out::println);
         IPage<Student> studentIPage = studentDao.selectPage(new Page<>(1, 10), new QueryWrapper<>());
         List<Student> records = studentIPage.getRecords();
         records.stream().parallel().forEach(System.out::println);
+        return students;
+    }
+
+    @PostMapping(value = "/bbb")
+    @DataSource("mysql8012DataSource")
+    public Object bbb(@RequestBody Student student)
+    {
+        studentService.insert(student);
+        return student;
     }
 }

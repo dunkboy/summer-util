@@ -1,6 +1,10 @@
 package org.poor.framework.test.enums;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.alibaba.fastjson.annotation.JSONType;
+import com.baomidou.mybatisplus.core.enums.IEnum;
+import org.poor.framework.utils.serialize.CustomEnumConvert;
+
+import java.io.Serializable;
 
 /**
  * +---------------------------+
@@ -15,7 +19,8 @@ import com.baomidou.mybatisplus.annotation.EnumValue;
  * @author cb
  * @version 1.0
  **/
-public enum AssignTypeEnum
+@JSONType(deserializer = CustomEnumConvert.class)
+public enum AssignTypeEnum implements IEnum
 {
 
     /**
@@ -33,7 +38,7 @@ public enum AssignTypeEnum
         this.desc = desc;
     }
 
-    @EnumValue
+//    @EnumValue
     private int type;
 
     private String desc;
@@ -48,10 +53,15 @@ public enum AssignTypeEnum
         return desc;
     }
 
-//    @Override
-//    public String toString()
-//    {
-//        return getType().toString();
-//    }
+    @Override
+    public String toString()
+    {
+        return getType().toString();
+    }
 
+    @Override
+    public Serializable getValue()
+    {
+        return getType();
+    }
 }

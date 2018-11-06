@@ -1,8 +1,6 @@
 package org.poor.framework.test.domain.po;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.extension.api.R;
 import lombok.Data;
 import org.poor.framework.test.enums.AssignTypeEnum;
 
