@@ -75,7 +75,7 @@ public class TestController
     @DataSource(value = "mysql5717DataSource")
     public void get() throws Exception
     {
-        System.out.println("============={}"+DataSourceSupport.get());
+        System.out.println("============={}" + DataSourceSupport.get());
         for (int i = 0; i < 10; i++)
         {
             Student s = new Student();
@@ -109,7 +109,15 @@ public class TestController
     @DataSource("mysql8012DataSource")
     public Object bbb(@RequestBody Student student)
     {
-        studentService.insert(student);
+        List<Student> a = new ArrayList<>();
+        for (int i = 0; i < 10; i++)
+        {
+            Student s = new Student();
+            s.setName("name$$$" + i);
+            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
+            a.add(s);
+        }
+        studentService.batchInsert(a);
         return student;
     }
 }

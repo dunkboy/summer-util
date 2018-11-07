@@ -19,6 +19,7 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.poor.framework.test.datasource.DynamicDataSource;
+import org.poor.framework.test.injector.CustomSqlInjector;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -104,7 +105,7 @@ public class MybatisConfig implements TransactionManagementConfigurer
         GlobalConfig global = new GlobalConfig();
         global.setBanner(true);
         global.setRefresh(true);
-        global.setSqlInjector(new LogicSqlInjector());
+        global.setSqlInjector(new CustomSqlInjector());
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
         dbConfig.setDbType(DbType.MYSQL);
         dbConfig.setTablePrefix("cb_");

@@ -3,6 +3,7 @@ package org.poor.framework.test.domain.po;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 import org.poor.framework.test.enums.AssignTypeEnum;
+import org.poor.framework.utils.annotation.Column;
 
 /**
  * +---------------------------+
@@ -23,6 +24,8 @@ public class Student
     private Long tenantId;
     @TableLogic
     private Boolean delFlag;
+    @Column(batchInsert = true)
     private String name;
+    @Column(batchInsert = true)
     private AssignTypeEnum assignType;
 }

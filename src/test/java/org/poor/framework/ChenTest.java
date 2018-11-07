@@ -1,6 +1,7 @@
 package org.poor.framework;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.bean.CsvToBean;
@@ -13,6 +14,7 @@ import org.poor.framework.test.dao.StudentDao;
 import org.poor.framework.test.datasource.DataSourceSupport;
 import org.poor.framework.test.domain.po.Student;
 import org.poor.framework.test.enums.AssignTypeEnum;
+import org.poor.framework.utils.annotation.Column;
 import org.poor.framework.utils.annotation.DataSource;
 import org.poor.framework.utils.csv.CsvUtil;
 import org.poor.framework.utils.email.EmailUtil;
@@ -21,8 +23,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.io.FileReader;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static java.lang.System.out;
 import static java.lang.System.setOut;
@@ -74,19 +80,44 @@ public class ChenTest
     @Test
     public void test2() throws Exception
     {
-        System.out.println("============={}"+DataSourceSupport.get());
-        for (int i = 0; i < 10; i++)
+        System.out.println("============={}" + DataSourceSupport.get());
+        List<Student> students = new ArrayList<>();
+        for (int i = 0; i < 5; i++)
         {
             Student s = new Student();
-            s.setName("name" + i);
-            s.setTenantId((long) i);
-            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
-            studentDao.insert(s);
+            s.setName("######");
+//            s.setTenantId((long) i);
+            s.setAssignType(AssignTypeEnum.HAVE_ASSIGN);
+//        studentDao.insert(s);
+//            studentDao.batchInsert(s);
+            students.add(s);
         }
+//        studentDao.batchInsert(students);
     }
 
     public static void main(String[] args) throws Exception
     {
+        StringBuilder sb = new StringBuilder("<foreach");
+        sb.append(StringPool.COMMA).append(StringPool.NEWLINE);
+        System.out.println(sb.toString());
+        System.out.println(sb.lastIndexOf(","));
+        sb.delete(sb.lastIndexOf(","), sb.length());
+        System.out.println(sb.toString());
+//        Student s = new Student();
+//        s.setName("qwer");
+//        s.setAssignType(AssignTypeEnum.HAVE_ASSIGN);
+//        Class<? extends Student> aClass = s.getClass();
+//        Field[] declaredFields = aClass.getDeclaredFields();
+//        List<Field> collect = Arrays.stream(declaredFields).collect(Collectors.toList());
+//        collect.stream().forEach(item -> {
+//            System.out.print(item.getName() + "===");
+//            Column column = item.getAnnotation(Column.class);
+//            if (column != null)
+//            {
+//                System.out.print(column.batchInsert());
+//            }
+//            System.out.println();
+//        });
 //        Map<String, String> values = new CSVReaderHeaderAware(new FileReader("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\test.csv")).readMap();
 //        values.forEach((k,v)->{
 //            System.out.println(k+"="+v);
