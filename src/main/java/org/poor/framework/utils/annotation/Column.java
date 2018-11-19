@@ -27,4 +27,15 @@ public @interface Column
      * 批量插入字段选择 false不要 true要要
      */
     boolean batchInsert() default false;
+
+    /**
+     * 批量更新字段选择 false不要 true要要
+     */
+    boolean batchUpdateSet() default false;
+
+    /**
+     * 批量更新过滤字段选择 false不要 true要要
+     */
+    boolean batchUpdateFilter() default false;
+
 }

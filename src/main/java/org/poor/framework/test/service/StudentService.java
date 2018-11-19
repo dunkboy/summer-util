@@ -11,4 +11,6 @@ public interface StudentService
 
     void batchInsert(List<Student> s);
 
+    void batchUpdate(List<Student> s);
+
 }

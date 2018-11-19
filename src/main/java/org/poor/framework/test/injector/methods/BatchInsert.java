@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * |I am the most handsome coding peasant.|
  * +---------------------------+
  * <p>Title: BatchInsert</p>
- * <p>Description: BatchInsert</p>
+ * <p>Description: 批量插入适用于mysql</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
  * <p>Company: poor</p>
  * <p>CreateTime: 2018/11/6 20:51</p>

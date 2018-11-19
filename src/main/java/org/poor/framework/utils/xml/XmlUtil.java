@@ -17,7 +17,7 @@ import java.io.StringWriter;
 /**
  * <p>Description: XML工具类.</p>
  * <p>Copyright: Copyright(c)2018.</p>
- * <p>Company: remark.</p>
+ * <p>Company: poor.</p>
  * <p>CreateTime: 2018/04/28.</p>
  *
  * @author cb
@@ -38,7 +38,7 @@ public class XmlUtil
     /**
      * <p>Description: 将对象直接转换成String类型的 XML输出.</p>
      * <p>Copyright: Copyright(c).</p>
-     * <p>Company: remark.</p>
+     * <p>Company: poor.</p>
      * <p>CreateTime: 2017/11/28.</p>
      *
      * @param obj 对象
@@ -73,7 +73,7 @@ public class XmlUtil
     /**
      * <p>Description: 将对象根据路径转换成xml文件.</p>
      * <p>Copyright: Copyright(c).</p>
-     * <p>Company: remark.</p>
+     * <p>Company: poor.</p>
      * <p>CreateTime: 2017/11/28.</p>
      *
      * @param obj  对象
@@ -115,7 +115,7 @@ public class XmlUtil
     /**
      * <p>Description: 将String类型的xml转换成对象 .</p>
      * <p>Copyright: Copyright(c).</p>
-     * <p>Company: remark.</p>
+     * <p>Company: poor.</p>
      * <p>CreateTime: 2017/11/28.</p>
      *
      * @param clazz  类型对象
@@ -145,7 +145,7 @@ public class XmlUtil
     /**
      * <p>Description: 将file类型的xml转换成对象.</p>
      * <p>Copyright: Copyright(c).</p>
-     * <p>Company: remark.</p>
+     * <p>Company: poor.</p>
      * <p>CreateTime: 2017/11/28.</p>
      *
      * @param clazz   要转换成的类对象

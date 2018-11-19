@@ -73,7 +73,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     /**
      * <p>Description: get bean</p>
      * <p>Copyright:Copyright(c)2018</p>
-     * <p>Company: remark holdings</p>
+     * <p>Company: poor</p>
      * <p>CreateTime:2018/6/3 14:38</p>
      * <p>@author cb</p>
      *

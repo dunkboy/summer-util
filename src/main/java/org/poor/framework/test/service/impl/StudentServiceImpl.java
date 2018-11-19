@@ -24,4 +24,10 @@ public class StudentServiceImpl implements StudentService{
     {
         studentDao.batchInsert(s);
     }
+
+    @Override
+    public void batchUpdate(List<Student> s)
+    {
+        studentDao.batchUpdate(s);
+    }
 }

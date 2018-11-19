@@ -28,6 +28,10 @@ public enum AssignTypeEnum implements IEnum
      */
     NOT_ASSIGN(1, "未分配"),
     /**
+     * 未分配
+     */
+    XXX(888, "未分配"),
+    /**
      * 已分配
      */
     HAVE_ASSIGN(2, "已分配");

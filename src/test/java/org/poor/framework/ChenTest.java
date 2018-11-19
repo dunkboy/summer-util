@@ -92,7 +92,7 @@ public class ChenTest
 //            studentDao.batchInsert(s);
             students.add(s);
         }
-//        studentDao.batchInsert(students);
+//        studentDao.batchInsert(students);d
     }
 
     public static void main(String[] args) throws Exception

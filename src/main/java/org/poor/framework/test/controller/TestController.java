@@ -113,11 +113,13 @@ public class TestController
         for (int i = 0; i < 10; i++)
         {
             Student s = new Student();
-            s.setName("name$$$" + i);
-            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
+            s.setId(i + 1L);
+            s.setName("nameBBB" + i);
+            s.setAssignType(AssignTypeEnum.XXX);
             a.add(s);
         }
-        studentService.batchInsert(a);
-        return student;
+        studentService.batchUpdate(a);
+//        studentService.batchInsert(a);
+        return null;
     }
 }

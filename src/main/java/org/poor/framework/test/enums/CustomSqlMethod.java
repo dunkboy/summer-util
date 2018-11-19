@@ -17,7 +17,11 @@ public enum CustomSqlMethod
     /**
      * 插入
      */
-    BATCH_INSERT("batchInsert", "插入多条数据（选择字段插入）", "<script>\nINSERT INTO %s %s VALUES %s\n</script>");
+    BATCH_INSERT("batchInsert", "插入多条数据（选择字段插入）", "<script>\nINSERT INTO %s %s VALUES %s\n</script>"),
+    /**
+     * 批量更新
+     */
+    BATCH_UPDATE("batchUpdate", "更新多条数据（选择字段更新）", "<script>\nUPDATE %s %s WHERE %s\n</script>");
 
     private final String method;
     private final String desc;
