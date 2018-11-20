@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.extension.injector.methods.LogicSelectPage;
 import com.baomidou.mybatisplus.extension.injector.methods.LogicUpdate;
 import com.baomidou.mybatisplus.extension.injector.methods.LogicUpdateById;
 import org.poor.framework.test.injector.methods.BatchInsert;
+import org.poor.framework.test.injector.methods.BatchSaveOrUpdate;
 import org.poor.framework.test.injector.methods.BatchUpdate;
 
 import java.util.List;
@@ -62,7 +63,8 @@ public class CustomSqlInjector extends AbstractSqlInjector
                 new LogicSelectList(),
                 new LogicSelectPage(),
                 new BatchInsert(),
-                new BatchUpdate()
+                new BatchUpdate(),
+                new BatchSaveOrUpdate()
         ).collect(Collectors.toList());
     }
 }

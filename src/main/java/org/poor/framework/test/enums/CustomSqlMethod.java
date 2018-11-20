@@ -21,7 +21,11 @@ public enum CustomSqlMethod
     /**
      * 批量更新
      */
-    BATCH_UPDATE("batchUpdate", "更新多条数据（选择字段更新）", "<script>\nUPDATE %s %s WHERE %s\n</script>");
+    BATCH_UPDATE("batchUpdate", "更新多条数据（选择字段更新）", "<script>\nUPDATE %s %s WHERE %s\n</script>"),
+    /**
+     * 批量合并更新
+     */
+    BATCH_SAVE_OR_UPDATE("saveOrUpdate", "合并更新多条数据（选择字段合并）", "<script>\nINSERT INTO %s %s VALUES %s ON DUPLICATE KEY UPDATE %s\n</script>");
 
     private final String method;
     private final String desc;

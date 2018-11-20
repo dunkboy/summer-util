@@ -25,46 +25,47 @@ import java.util.stream.Collectors;
  * +---------------------------+
  * |I am the most handsome coding peasant.|
  * +---------------------------+
- * <p>Title: BatchInsert</p>
- * <p>Description: 批量插入适用于mysql</p>
+ * <p>Title: BatchSaveOrUpdate</p>
+ * <p>Description: 批量合并更新适用于mysql</p>
  * <p>Copyright:Copyright(c) coder 2018/p>
  * <p>Company: poor</p>
  * <p>CreateTime: 2018/11/6 20:51</p>
  * @author cb
  * @version 1.0
  **/
-public class BatchInsert extends AbstractMethod
+public class BatchSaveOrUpdate extends AbstractMethod
 {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo)
     {
         KeyGenerator keyGenerator = new NoKeyGenerator();
-        CustomSqlMethod sqlMethod = CustomSqlMethod.BATCH_INSERT;
-        Map<String, List<String>> map = doBatchInsertField(modelClass);
+        CustomSqlMethod sqlMethod = CustomSqlMethod.BATCH_SAVE_OR_UPDATE;
+        Map<String, List<String>> map = doBatchSaveOrUpdateField(modelClass);
         if (CollectionUtils.isEmpty(map))
         {
             return null;
         }
         String columnScript = getAllBatchInsertSqlColumn(map.get("columns"));
         String valuesScript = getAllBatchInsertSqlProperty(map.get("properties"));
+        String onDuplicateKeyUpdateScript = getAllOnDuplicateKeyUpdate(map.get("columns"));
         String keyProperty = null;
         String keyColumn = null;
-        String sql = String.format(sqlMethod.getSql(), tableInfo.getTableName(), columnScript, valuesScript);
+        String sql = String.format(sqlMethod.getSql(), tableInfo.getTableName(), columnScript, valuesScript, onDuplicateKeyUpdateScript);
         SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
         return this.addInsertMappedStatement(mapperClass, modelClass, sqlMethod.getMethod(), sqlSource, keyGenerator, keyProperty, keyColumn);
     }
 
-    public Map<String, List<String>> doBatchInsertField(Class<?> modelClass)
+    public Map<String, List<String>> doBatchSaveOrUpdateField(Class<?> modelClass)
     {
         List<Field> fields = Arrays.stream(modelClass.getDeclaredFields()).collect(Collectors.toList());
-        List<Field> batchInsertField = fields.stream().filter(item -> item.getAnnotation(Column.class) != null)
-                .filter(item -> item.getAnnotation(Column.class).batchInsert())
+        List<Field> batchSaveOrUpdateField = fields.stream().filter(item -> item.getAnnotation(Column.class) != null)
+                .filter(item -> item.getAnnotation(Column.class).batchSaveOrUpdate())
                 .collect(Collectors.toList());
-        if (CollectionUtils.isEmpty(batchInsertField))
+        if (CollectionUtils.isEmpty(batchSaveOrUpdateField))
         {
             return null;
         }
-        List<String> properties = batchInsertField.stream().map(Field::getName).collect(Collectors.toList());
+        List<String> properties = batchSaveOrUpdateField.stream().map(Field::getName).collect(Collectors.toList());
         List<String> columns = new ArrayList<>();
         for (String property : properties)
         {
@@ -107,6 +108,19 @@ public class BatchInsert extends AbstractMethod
         }
         sb.delete(sb.lastIndexOf(StringPool.COMMA), sb.length());
         return sb.append(StringPool.RIGHT_BRACKET).append(StringPool.NEWLINE).append("</foreach>").toString();
+    }
+
+    private String getAllOnDuplicateKeyUpdate(List<String> columns)
+    {
+        StringBuilder sb = new StringBuilder(StringPool.NEWLINE);
+        for (String column : columns)
+        {
+            sb.append(column).append(StringPool.SPACE).append(StringPool.EQUALS).append(StringPool.SPACE)
+                    .append("VALUES").append(StringPool.SPACE).append(StringPool.LEFT_BRACKET).append(column)
+                    .append(StringPool.RIGHT_BRACKET).append(StringPool.COMMA);
+        }
+        sb.delete(sb.lastIndexOf(StringPool.COMMA), sb.length());
+        return sb.toString();
     }
 
 }

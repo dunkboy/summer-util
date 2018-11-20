@@ -13,4 +13,5 @@ public interface StudentService
 
     void batchUpdate(List<Student> s);
 
+    void batchSaveOrUpdate(List<Student> s);
 }

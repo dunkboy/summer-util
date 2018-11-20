@@ -20,7 +20,11 @@ import java.util.Collection;
  **/
 public interface CustomBaseMapper<T> extends BaseMapper<T>
 {
-    void batchInsert(@Param(Constants.COLLECTION) Collection<T> list);
+    int batchInsert(@Param(Constants.COLLECTION) Collection<T> list);
 
-    void batchUpdate(@Param(Constants.COLLECTION) Collection<T> list);
+    int batchUpdate(@Param(Constants.COLLECTION) Collection<T> list);
+
+    int saveOrUpdate(@Param(Constants.COLLECTION) Collection<T> list);
+
+
 }

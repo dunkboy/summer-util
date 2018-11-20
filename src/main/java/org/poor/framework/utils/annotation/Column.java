@@ -38,4 +38,9 @@ public @interface Column
      */
     boolean batchUpdateFilter() default false;
 
+    /**
+     * 批量合并更新字段选择 false不要 true要要
+     */
+    boolean batchSaveOrUpdate() default false;
+
 }
