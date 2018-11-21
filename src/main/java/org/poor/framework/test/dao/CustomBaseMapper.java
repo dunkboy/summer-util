@@ -26,5 +26,7 @@ public interface CustomBaseMapper<T> extends BaseMapper<T>
 
     int saveOrUpdate(@Param(Constants.COLLECTION) Collection<T> list);
 
+    int replaceInto(@Param(Constants.COLLECTION) Collection<T> list);
+
 
 }

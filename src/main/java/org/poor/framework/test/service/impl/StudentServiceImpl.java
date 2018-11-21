@@ -36,4 +36,10 @@ public class StudentServiceImpl implements StudentService{
     {
         studentDao.saveOrUpdate(s);
     }
+
+    @Override
+    public void batchReplaceInto(List<Student> s)
+    {
+        studentDao.replaceInto(s);
+    }
 }

@@ -15,6 +15,7 @@ import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Configuration
 @MapperScan("org.poor.framework.**.dao")
@@ -140,7 +142,7 @@ public class MybatisConfig implements TransactionManagementConfigurer
             @Override
             public Expression getTenantId()
             {
-                return new LongValue(1L);
+                return new LongValue(RandomUtils.nextLong());
             }
 
             @Override

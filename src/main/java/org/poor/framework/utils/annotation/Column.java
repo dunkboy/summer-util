@@ -43,4 +43,9 @@ public @interface Column
      */
     boolean batchSaveOrUpdate() default false;
 
+    /**
+     * replace into批量插入字段选择 false不要 true要要
+     */
+    boolean batchReplaceInto() default false;
+
 }

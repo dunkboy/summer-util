@@ -114,12 +114,14 @@ public class TestController
         {
             Student s = new Student();
             s.setId(i + 1L);
-            s.setName("nameCCCC" + i);
+            s.setName("nameQQQQ" + i);
             s.setAssignType(AssignTypeEnum.XXX);
+            s.setTenantId(333L);
             a.add(s);
         }
         a.add(student);
-        studentService.batchSaveOrUpdate(a);
+        studentService.batchReplaceInto(a);
+//        studentService.batchSaveOrUpdate(a);
 //        studentService.batchUpdate(a);
 //        studentService.batchInsert(a);
         return null;

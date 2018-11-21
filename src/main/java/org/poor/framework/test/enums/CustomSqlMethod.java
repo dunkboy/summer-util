@@ -23,6 +23,10 @@ public enum CustomSqlMethod
      */
     BATCH_UPDATE("batchUpdate", "更新多条数据（选择字段更新）", "<script>\nUPDATE %s %s WHERE %s\n</script>"),
     /**
+     * ReplaceInto插入
+     */
+    BATCH_REPLACE_INTO("replaceInto", "插入多条数据（选择字段插入）", "<script>\nREPLACE INTO %s %s VALUES %s\n</script>"),
+    /**
      * 批量合并更新
      */
     BATCH_SAVE_OR_UPDATE("saveOrUpdate", "合并更新多条数据（选择字段合并）", "<script>\nINSERT INTO %s %s VALUES %s ON DUPLICATE KEY UPDATE %s\n</script>");

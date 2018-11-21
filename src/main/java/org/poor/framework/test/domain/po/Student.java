@@ -20,13 +20,14 @@ import org.poor.framework.utils.annotation.Column;
 @Data
 public class Student
 {
-    @Column(batchUpdateFilter = true, batchSaveOrUpdate = true)
+    @Column(batchUpdateFilter = true, batchSaveOrUpdate = true, batchReplaceInto = true)
     private Long id;
+    @Column(batchReplaceInto = true)
     private Long tenantId;
     @TableLogic
     private Boolean delFlag;
-    @Column(batchInsert = true, batchUpdateSet = true, batchSaveOrUpdate = true)
+    @Column(batchInsert = true, batchUpdateSet = true, batchSaveOrUpdate = true, batchReplaceInto = true)
     private String name;
-    @Column(batchInsert = true, batchUpdateSet = true, batchSaveOrUpdate = true)
+    @Column(batchInsert = true, batchUpdateSet = true, batchSaveOrUpdate = true, batchReplaceInto = true)
     private AssignTypeEnum assignType;
 }
