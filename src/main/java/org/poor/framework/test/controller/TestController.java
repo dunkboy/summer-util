@@ -15,17 +15,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.poor.framework.test.A;
+import org.poor.framework.test.TestFeignService;
 import org.poor.framework.test.dao.StudentDao;
 import org.poor.framework.test.datasource.DataSourceSupport;
 import org.poor.framework.test.domain.po.Student;
 import org.poor.framework.test.enums.AssignTypeEnum;
 import org.poor.framework.test.service.StudentService;
 import org.poor.framework.utils.annotation.DataSource;
-import org.poor.framework.utils.json.FastJsonUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.poor.framework.utils.http.FeignCreateUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -109,6 +108,7 @@ public class TestController
     @DataSource("mysql8012DataSource")
     public Object bbb(@RequestBody Student student)
     {
+        student.setAssignType(AssignTypeEnum.XXX);
         List<Student> a = new ArrayList<>();
         for (int i = 0; i < 10; i++)
         {
@@ -124,6 +124,16 @@ public class TestController
 //        studentService.batchSaveOrUpdate(a);
 //        studentService.batchUpdate(a);
 //        studentService.batchInsert(a);
-        return null;
+        return student;
     }
+
+    @PostMapping(value = "/haha")
+    public Student haha(@RequestBody Student student) throws Exception
+    {
+        TestFeignService service = FeignCreateUtils.getService("https://localhost:8080", TestFeignService.class);
+        Student student1 = service.callTest(student);
+        return student1;
+    }
+
 }
+

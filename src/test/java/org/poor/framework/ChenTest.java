@@ -97,12 +97,19 @@ public class ChenTest
 
     public static void main(String[] args) throws Exception
     {
-        StringBuilder sb = new StringBuilder("<foreach");
-        sb.append(StringPool.COMMA).append(StringPool.NEWLINE);
-        System.out.println(sb.toString());
-        System.out.println(sb.lastIndexOf(","));
-        sb.delete(sb.lastIndexOf(","), sb.length());
-        System.out.println(sb.toString());
+
+
+//        int i = 10 ^ 20 ;
+//        System.out.println(i);
+//        int b = 20 ^ 20 ^10;
+//        System.out.println(b);
+
+//        StringBuilder sb = new StringBuilder("<foreach");
+//        sb.append(StringPool.COMMA).append(StringPool.NEWLINE);
+//        System.out.println(sb.toString());
+//        System.out.println(sb.lastIndexOf(","));
+//        sb.delete(sb.lastIndexOf(","), sb.length());
+//        System.out.println(sb.toString());
 //        Student s = new Student();
 //        s.setName("qwer");
 //        s.setAssignType(AssignTypeEnum.HAVE_ASSIGN);

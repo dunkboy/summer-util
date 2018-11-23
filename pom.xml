@@ -35,6 +35,7 @@
         <com.github.bingoohuang.version>0.0.1</com.github.bingoohuang.version>
         <mybatis.plus.boot.starter>3.0.5</mybatis.plus.boot.starter>
         <aspectjweaver.version>1.9.2</aspectjweaver.version>
+        <openfeign.version>10.1.0</openfeign.version>
     </properties>
 
     <dependencies>
@@ -110,6 +111,26 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectjweaver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>${openfeign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>${openfeign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-slf4j</artifactId>
+            <version>${openfeign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${openfeign.version}</version>
         </dependency>
     </dependencies>
 
