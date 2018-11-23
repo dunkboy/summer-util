@@ -2,10 +2,13 @@ package org.poor.framework;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.github.drinkjava2.jsqlbox.SqlBoxContext;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.poor.framework.test.B;
@@ -53,10 +56,20 @@ public class ChenTest
     @Resource
     private StudentDao studentDao;
 
+    @Resource
+    private SqlBoxContext sqlBoxContext;
+
     @Test
     @DataSource("mysql8012DataSource")
     public void test() throws Exception
     {
+        Student s = new Student();
+        s.setName("而发热王若飞");
+        s.setTenantId(54L);
+        s.setAssignType(AssignTypeEnum.HAVE_ASSIGN);
+//        sqlBoxContext.eInsert(s);
+        sqlBoxContext.nExecute("INSERT INTO `test`.`cb_student`( `tenant_id`, `del_flag`, `name`, `assign_type`) VALUES ( 333, 0, 'ggd烦烦烦', 888)");
+
 //        List<MyUser> beans = CsvUtil.parseCsv("F:\\workspace_idea_remark\\summer-util\\src\\test\\resources\\aaa.csv", MyUser.class, null);
 //        beans.stream().forEach(item->{
 //            item.setId(item.getId()+34);
@@ -71,8 +84,8 @@ public class ChenTest
 //            s.setAssignType(AssignTypeEnum.NOT_ASSIGN);
 //            studentDao.insert(s);
 //        }
-        List<Student> students = studentDao.selectList(new QueryWrapper<>());
-        students.stream().parallel().forEach(System.out::println);
+//        List<Student> students = studentDao.selectList(new QueryWrapper<>());
+//        students.stream().parallel().forEach(System.out::println);
 //        System.out.println(AssignTypeEnum.NOT_ASSIGN.toString());;
     }
 

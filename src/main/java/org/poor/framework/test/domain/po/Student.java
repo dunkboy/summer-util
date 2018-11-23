@@ -1,6 +1,7 @@
 package org.poor.framework.test.domain.po;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.github.drinkjava2.jdialects.annotation.jpa.Table;
 import lombok.Data;
 import org.poor.framework.test.enums.AssignTypeEnum;
 import org.poor.framework.utils.annotation.Column;
@@ -18,6 +19,7 @@ import org.poor.framework.utils.annotation.Column;
  * @version 1.0
  **/
 @Data
+@Table(name = "cb_student")
 public class Student
 {
     @Column(batchUpdateFilter = true, batchSaveOrUpdate = true, batchReplaceInto = true)
