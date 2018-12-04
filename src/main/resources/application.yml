@@ -69,3 +69,9 @@ email:
   #系统名称
   personal: 黑客1号
 
+threadpool:
+  corePoolSize: 4
+  keepAliveSeconds: 30000
+  maxPoolSize: 20
+  queueCapacity: 10000
+

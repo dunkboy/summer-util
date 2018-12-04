@@ -19,8 +19,10 @@ import org.poor.framework.test.TestFeignService;
 import org.poor.framework.test.dao.StudentDao;
 import org.poor.framework.test.datasource.DataSourceSupport;
 import org.poor.framework.test.domain.po.Student;
+import org.poor.framework.test.domain.po.StudentQuery;
 import org.poor.framework.test.enums.AssignTypeEnum;
 import org.poor.framework.test.service.StudentService;
+import org.poor.framework.test.websoket.WebSocketServer;
 import org.poor.framework.utils.annotation.DataSource;
 import org.poor.framework.utils.http.FeignCreateUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +30,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.yeauty.pojo.Session;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *      _mZ***~*=e_
@@ -128,11 +132,23 @@ public class TestController
     }
 
     @PostMapping(value = "/haha")
-    public Student haha(@RequestBody Student student) throws Exception
+    public Object haha(@RequestBody StudentQuery query) throws Exception
     {
-        TestFeignService service = FeignCreateUtils.getService("https://localhost:8080", TestFeignService.class);
-        Student student1 = service.callTest(student);
-        return student1;
+        return studentDao.findStudentPage(query);
+//        TestFeignService service = FeignCreateUtils.getService("https://localhost:8080", TestFeignService.class);
+//        Student student1 = service.callTest(student);
+//        return student1;
+    }
+
+    @GetMapping(value = "/zzz")
+    public void haha(String userId) throws Exception
+    {
+        Set<Session> sessions = WebSocketServer.findSessions(userId);
+        while (true)
+        {
+            WebSocketServer.sendMessage(sessions, "你就是一个傻逼！！！！");
+            Thread.sleep(1000);
+        }
     }
 
 }

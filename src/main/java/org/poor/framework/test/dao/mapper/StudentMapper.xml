@@ -2,5 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.poor.framework.test.dao.StudentDao">
 
+    <select id="findStudentPage" resultType="student" parameterType="studentQuery">
+        SELECT * FROM cb_student
+        <where>
+            <if test="name != null and name !='' ">
+                name = #{name}
+            </if>
+        </where>
+    </select>
+
 </mapper>
 

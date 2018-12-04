@@ -1,0 +1,4 @@
+netty-websocket:
+#    host: 127.0.0.1   bug 0.7.2修复
+    path: /ws
+    port: 80
